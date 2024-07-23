@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText"
+    android:background="@color/splash">>
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="100dp"
+        android:text="Cross World 🔠"
+        android:textColor="@color/white"
+        android:textSize="40dp" />
+
+
+
+    <Button
+        android:id="@+id/new_game_button"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="New Game"/>
+
+
+    <Button
+        android:id="@+id/help_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/new_game_button"/>
+
+
+    <Button
+        android:id="@+id/about_button"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:layout_below="@+id/help_button"/>
+
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Exit"
+        android:layout_below="@+id/about_button"/>/>
+
+
+
+</RelativeLayout>
