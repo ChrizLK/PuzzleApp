@@ -34,4 +34,13 @@
         android:textSize="12sp"
         android:textColor="@android:color/black"
         android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/retryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Try Again"
+        android:visibility="gone"> </Button>
+
 </RelativeLayout>

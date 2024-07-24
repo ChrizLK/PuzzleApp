@@ -1,5 +1,8 @@
 package com.example.cross1;
 
+import static com.example.cross1.R.*;
+
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,6 +12,8 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -19,9 +24,11 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private Button retryButton;
     private TextView countdownTimerText;
     private CountDownTimer countDownTimer;
-    private static final long START_TIME_IN_MILLIS = 120000; // 2 minutes in milliseconds0000; // 1 minute
+    private static final long START_TIME_IN_MILLIS = 60000; // 2 minutes in milliseconds0000; // 1 minute
     private GridLayout crosswordGrid;
     private char[][] crossword = new char[10][10];
     private char[][] solution = new char[10][10]; // Store the solution for validation
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         crosswordGrid = findViewById(R.id.crosswordGrid);
         randomMessageTextView = findViewById(R.id.randomMessageTextView);
         countdownTimerText = findViewById(R.id.countdown_timer);
+        retryButton = findViewById(id.retryButton);
 
         // Generate and initialize the crossword puzzle
         generateCrossword();
@@ -60,9 +69,21 @@ public class MainActivity extends AppCompatActivity {
         scheduleRandomMessageUpdate();
         startCountdownTimer();
         checkAllWordsFilled();
-        Gamesounds();
+
+
     }
 
+    //After game finished this visible the retry button
+    public void Retry ()
+    {
+        retryButton.setVisibility(View.VISIBLE);
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+    }
 
     private void scheduleRandomMessageUpdate() {
         handler.postDelayed(new Runnable() {
@@ -230,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Gamesounds();
+        Retry();
     }
 
     private void Gamesounds(){

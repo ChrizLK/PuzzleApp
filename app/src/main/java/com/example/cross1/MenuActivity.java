@@ -43,6 +43,15 @@ public class MenuActivity extends AppCompatActivity {
         });
 
 
+        Button exit = findViewById(R.id.exit_button);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
+            }
+        });
+
+
     }
 
 

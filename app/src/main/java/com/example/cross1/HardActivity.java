@@ -9,6 +9,8 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import java.util.Random;
 
 public class HardActivity extends AppCompatActivity {
 
+    private Button retryButton;
     private TextView countdownTimerText;
     private CountDownTimer countDownTimer;
     private static final long START_TIME_IN_MILLIS = 240000; // 2 minutes in milliseconds0000; // 1 minute
@@ -52,14 +55,29 @@ public class HardActivity extends AppCompatActivity {
         crosswordGrid = findViewById(R.id.crosswordGrid);
         randomMessageTextView = findViewById(R.id.randomMessageTextView);
         countdownTimerText = findViewById(R.id.countdown_timer);
-
+        retryButton = findViewById(R.id.retryButton);
         // Generate and initialize the crossword puzzle
         generateCrossword();
         initializeCrossword();
         scheduleRandomMessageUpdate();
         startCountdownTimer();
-        Gamesounds();
+
     }
+
+
+    //After game finished this visible the retry button
+    public void Retry ()
+    {
+        retryButton.setVisibility(View.VISIBLE);
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+    }
+
+
 
 
     private void scheduleRandomMessageUpdate() {
@@ -250,6 +268,7 @@ public class HardActivity extends AppCompatActivity {
         }
 
         Gamesounds();
+        Retry();
     }
 
     private void Gamesounds(){
